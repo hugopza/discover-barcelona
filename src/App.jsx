@@ -8,17 +8,31 @@ import AudioPlayer from './components/AudioPlayer';
 import Footer from './components/Footer';
 
 function App() {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(() => {
+    const saved = localStorage.getItem("itinerary");
+    return saved ? JSON.parse(saved) : [];
+  });
+  const [isSaved, setIsSaved] = useState(() => {
+     return !!localStorage.getItem("itinerary");
+  });
 
   const addToCart = (activity) => {
-    // Prevent duplicates
     if (!cart.find(item => item.id === activity.id)) {
       setCart([...cart, activity]);
+      setIsSaved(false);
+    } else {
+      alert("This activity is already in your itinerary!");
     }
   };
 
   const removeFromCart = (id) => {
     setCart(cart.filter(item => item.id !== id));
+    setIsSaved(false);
+  };
+
+  const handleSave = () => {
+    localStorage.setItem("itinerary", JSON.stringify(cart));
+    setIsSaved(true);
   };
 
   return (
@@ -26,16 +40,8 @@ function App() {
       <Hero />
       <About />
       <VideoSection />
-      
-      {/* Passing cart state to ActivitiesList isn't strictly necessary unless we want to disable added buttons, 
-          but keeping it simple. */}
       <ActivitiesList onAdd={addToCart} />
-      
-      {/* Cart is always rendered but might be hidden or empty-state if empty, 
-          but requirements say "A separate component acting as a cart... Shows activities selected".
-          I'll keep it visible if there are items, or maybe a fixed bubble. */}
-      {cart.length > 0 && <Cart items={cart} onRemove={removeFromCart} />}
-      
+      {cart.length > 0 && <Cart items={cart} onRemove={removeFromCart} isSaved={isSaved} onSave={handleSave} />}
       <AudioPlayer />
       <Footer />
     </div>

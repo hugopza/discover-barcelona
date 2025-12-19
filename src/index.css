@@ -1,8 +1,7 @@
-/* Global Styles */
 :root {
-  --primary-color: #0070c9; /* Barcelona Blue */
-  --secondary-color: #f5c518; /* Spanish Gold/Sun */
-  --accent-color: #e74c3c; /* Red hint */
+  --primary-color: #0070c9;
+  --secondary-color: #f5c518;
+  --accent-color: #e74c3c;
   --text-color: #333;
   --bg-color: #f9f9f9;
   --card-bg: #fff;

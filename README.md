@@ -1,16 +1,78 @@
-# React + Vite
+# Tourism Promotion Web Page – React Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
 
-Currently, two official plugins are available:
+This project consists of a React-based web application designed to promote the city of Barcelona as a tourist destination. The website provides an engaging and interactive experience, combining multimedia elements with user interaction to showcase the city’s main attractions, culture, and activities.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The project has been developed as part of an academic assignment focused on multimedia integration and frontend development using React.
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React-based single-page application
 
-## Expanding the ESLint configuration
+- Hero section with an edited background image
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Embedded promotional video
+
+- Audio clip related to the city atmosphere (minimum 30 seconds)
+
+- Interactive list of tourist activities
+
+- Itinerary planner where users can add and remove activities
+
+- Option to save the itinerary using browser localStorage
+
+- Responsive and visually oriented design
+
+## Multimedia Elements
+
+- Video: Short promotional video showcasing Barcelona
+
+- Image: Edited image used in the hero section (color adjustments, overlay, and text composition)
+
+- Audio: Tourism-related audio clip embedded in the website
+
+## Technologies Used
+
+- React
+
+- JavaScript (ES6)
+
+- HTML5
+
+- CSS
+
+- Browser localStorage
+
+## Project Structure
+
+```
+src/
+├── assets/
+│   ├── images/
+│   ├── video/
+│   └── audio/
+├── components/
+├── App.jsx
+└── main.jsx
+```
+
+## How to Run the Project Locally
+
+- Clone the repository: `git clone <repository-url>`
+
+- Install dependencies:`npm install`
+
+- Start the development server: `npm run dev`
+
+- Open the browser at the URL shown in the terminal (usually http://localhost:5173).
+
+- Build for Production
+
+- To generate the production build: `npm run build`
+
+- The optimized files will be generated in the dist folder.
+
+## Author
+
+Hugo Pérez i Araus
