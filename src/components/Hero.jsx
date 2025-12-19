@@ -1,9 +1,10 @@
 import React from 'react';
+import HeaderImg from "../assets/images/foto-header.avif"
 
 const Hero = () => {
   return (
     <section className="hero" style={{
-      backgroundImage: 'url("https://images.unsplash.com/photo-1583422409516-2895a77efded?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80")',
+      backgroundImage: `url(${HeaderImg})`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       height: '100vh',
