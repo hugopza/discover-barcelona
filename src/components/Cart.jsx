@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Cart = ({ items, onRemove, isSaved, onSave }) => {
+const Cart = ({ items, onRemove, isSaved, onSave, onClear }) => {
   return (
     <div className="cart-planner" style={{
       position: 'fixed',
@@ -15,7 +15,23 @@ const Cart = ({ items, onRemove, isSaved, onSave }) => {
       maxHeight: '400px',
       overflowY: 'auto'
     }}>
-      <h3 style={{ borderBottom: '2px solid #f5c518', paddingBottom: '0.5rem', marginBottom: '1rem' }}>My itinerary ({items.length})</h3>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '2px solid #f5c518', paddingBottom: '0.5rem', marginBottom: '1rem' }}>
+        <h3 style={{ margin: 0 }}>My itinerary ({items.length})</h3>
+        <button 
+          onClick={onClear}
+          style={{
+            background: 'none', 
+            border: 'none', 
+            fontSize: '1.5rem', 
+            cursor: 'pointer', 
+            color: '#e74c3c',
+            marginTop: '-5px'
+          }}
+          title="Clear all"
+        >
+          &times;
+        </button>
+      </div>
       {items.length === 0 ? (
         <p>No activities selected.</p>
       ) : (
@@ -24,7 +40,7 @@ const Cart = ({ items, onRemove, isSaved, onSave }) => {
             <li key={item.id} style={{ marginBottom: '1rem', borderBottom: '1px solid #eee', paddingBottom: '0.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <div>
                 <span style={{ fontSize: '0.9rem', display: 'block' }}>{item.name}</span>
-                {item.time && <span style={{ fontSize: '0.8rem', color: '#666' }}>Time: {item.time}h</span>}
+                {item.time && <span style={{ fontSize: '0.8rem', color: '#666' }}>Time: {item.time}</span>}
               </div>
               <button 
                 onClick={() => onRemove(item.id)}

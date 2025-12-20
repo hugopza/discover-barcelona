@@ -35,13 +35,19 @@ function App() {
     setIsSaved(true);
   };
 
+  const clearCart = () => {
+    setCart([]);
+    setIsSaved(false);
+    localStorage.removeItem("itinerary");
+  };
+
   return (
     <div className="app-container">
       <Hero />
       <About />
       <VideoSection />
       <ActivitiesList onAdd={addToCart} />
-      {cart.length > 0 && <Cart items={cart} onRemove={removeFromCart} isSaved={isSaved} onSave={handleSave} />}
+      {cart.length > 0 && <Cart items={cart} onRemove={removeFromCart} isSaved={isSaved} onSave={handleSave} onClear={clearCart} />}
       <AudioPlayer />
       <Footer />
     </div>
